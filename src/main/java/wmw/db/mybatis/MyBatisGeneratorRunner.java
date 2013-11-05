@@ -62,8 +62,9 @@ public final class MyBatisGeneratorRunner {
             new DefaultShellCallback(overwrite), warnings);
     generator.generate(null);
     for (String warning : warnings) {
-      Logger.getLogger(MyBatisGeneratorRunner.class.getName()).log(Level.INFO,
-          null, warning);
+      if (warning != null && !warning.trim().isEmpty())
+        Logger.getLogger(MyBatisGeneratorRunner.class.getName()).log(
+            Level.INFO, null, warning);
     }
   }
 
